@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Life Video Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2300cc88'/%3E%3Cpath d='M50 15c18 0 33 15 33 33S68 81 50 81 17 66 17 48 32 15 50 15z' fill='%23fff' opacity='.2'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="hero">
+        <h1 class="title">Create a Video About <span class="accent">Life</span></h1>
+        <p class="subtitle">Procedurally generated visuals with gentle, synthesized music.</p>
+      </header>
+
+      <section class="controls">
+        <div class="control-row">
+          <label for="duration">Duration</label>
+          <select id="duration">
+            <option value="30">30s</option>
+            <option value="45">45s</option>
+            <option value="60">60s</option>
+          </select>
+        </div>
+        <div class="control-row">
+          <label for="resolution">Resolution</label>
+          <select id="resolution">
+            <option value="1280x720">1280?720 (HD)</option>
+            <option value="1920x1080">1920?1080 (Full HD)</option>
+            <option value="640x360">640?360</option>
+          </select>
+        </div>
+        <div class="control-row">
+          <label for="fps">Frame rate</label>
+          <select id="fps">
+            <option value="30">30 fps</option>
+            <option value="60">60 fps</option>
+          </select>
+        </div>
+        <div class="buttons">
+          <button id="startBtn" class="primary">Generate Video</button>
+          <button id="stopBtn" class="ghost" disabled>Stop</button>
+          <button id="resetBtn" class="ghost" disabled>Reset</button>
+        </div>
+        <p class="hint">The generation happens privately in your browser. No upload needed.</p>
+      </section>
+
+      <section class="stage">
+        <canvas id="stage" width="1280" height="720"></canvas>
+        <video id="preview" controls playsinline></video>
+      </section>
+
+      <section id="result" class="result hidden">
+        <h2>Your Video</h2>
+        <div class="result-grid">
+          <a id="downloadLink" class="primary" download="life.webm">Download WebM</a>
+          <span id="filesize" class="filesize"></span>
+        </div>
+        <p class="note">Tip: You can convert WebM to MP4 using ffmpeg if needed.</p>
+      </section>
+
+      <footer class="footer">
+        <p>Made with Canvas, MediaRecorder, and WebAudio.</p>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
